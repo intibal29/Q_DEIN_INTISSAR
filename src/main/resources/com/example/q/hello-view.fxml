@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.q.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<GridPane fx:controller="com.example.TemporizadorGrafico"
+          alignment="CENTER"
+          hgap="5"
+          xmlns:fx="http://javafx.com/fxml"
+          xmlns="http://javafx.com/javafx/8">
+    <!-- Define las etiquetas del temporizador en el GridPane -->
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+    <Label fx:id="minutosDecenas" text="0" style="-fx-font-size: 40px;" GridPane.columnIndex="0"/>
+    <Label fx:id="minutosUnidades" text="0" style="-fx-font-size: 40px;" GridPane.columnIndex="1"/>
+
+    <!-- Separador de minutos y segundos -->
+    <Label text=":" style="-fx-font-size: 40px;" GridPane.columnIndex="2"/>
+
+    <Label fx:id="segundosDecenas" text="0" style="-fx-font-size: 40px;" GridPane.columnIndex="3"/>
+    <Label fx:id="segundosUnidades" text="0" style="-fx-font-size: 40px;" GridPane.columnIndex="4"/>
+
+</GridPane>
