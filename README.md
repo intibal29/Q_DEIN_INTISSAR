@@ -1,0 +1,1 @@
+Este proyecto es un temporizador gráfico en JavaFX que cuenta en formato de minutos y segundos, mostrando la cuenta regresiva en tiempo real. Incluye control de tiempo configurable y manejo de finalización de cuenta.
