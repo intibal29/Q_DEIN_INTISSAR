@@ -18,12 +18,12 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>17.0.6</version>
+            <version>22.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>17.0.6</version>
+            <version>22.0.1</version>
         </dependency>
 
         <dependency>
@@ -52,13 +52,14 @@
                     <compilerArgs>--enable-preview</compilerArgs>
                 </configuration>
             </plugin>
+
+            <!-- Plugin para JavaFX -->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <executions>
                     <execution>
-                        <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>com.example.q/com.example.q.HelloApplication</mainClass>
@@ -72,6 +73,23 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- Plugin para generar Javadoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <source>23</source>
+                    <show>protected</show>
+                    <failOnError>false</failOnError>
+                    <docencoding>UTF-8</docencoding>
+                    <charset>UTF-8</charset>
+                    <quiet>true</quiet>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 </project>

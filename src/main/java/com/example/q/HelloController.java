@@ -15,10 +15,20 @@ import javafx.util.Duration;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 
+/**
+ * La clase HelloController representa una aplicación de JavaFX que muestra un temporizador de cuenta regresiva
+ * en formato gráfico. Incluye métodos para configurar el tiempo, iniciar el temporizador y actualizar la visualización.
+ * Extiende la clase Application de JavaFX para iniciar y mostrar la interfaz gráfica.
+ */
 public class HelloController extends Application {
 
+    /** GridPane que contiene las etiquetas de minutos y segundos. */
     private GridPane gridPane;
+
+    /** Propiedad que almacena el tiempo en segundos. */
     private IntegerProperty tiempo = new SimpleIntegerProperty();
+
+    /** Propiedad que indica si el temporizador ha finalizado. */
     private BooleanProperty fin = new SimpleBooleanProperty(false);
 
     @FXML
@@ -29,8 +39,15 @@ public class HelloController extends Application {
     private Label segundosDecenas;
     @FXML
     private Label segundosUnidades;
+
+    /** Timeline que controla el ciclo de la cuenta regresiva. */
     private Timeline timeline;
 
+    /**
+     * Constructor de la clase HelloController.
+     * Inicializa el GridPane y las etiquetas de minutos y segundos con su formato y posición.
+     * Configura el estilo visual de las etiquetas.
+     */
     public HelloController() {
         this.gridPane = new GridPane();
         this.gridPane.setAlignment(Pos.CENTER);
@@ -59,7 +76,13 @@ public class HelloController extends Application {
         fin.set(false);
     }
 
-    // Método para establecer el tiempo en minutos (1-99)
+    /**
+     * Establece el tiempo inicial del temporizador en minutos y actualiza la visualización.
+     * Convierte los minutos en segundos y limita el rango permitido entre 1 y 99 minutos.
+     *
+     * @param minutos Tiempo en minutos, entre 1 y 99.
+     * @throws IllegalArgumentException si el tiempo está fuera del rango permitido.
+     */
     public void setTiempo(int minutos) {
         if (minutos < 1 || minutos > 99) {
             throw new IllegalArgumentException("El tiempo debe estar entre 1 y 99 minutos.");
@@ -68,7 +91,10 @@ public class HelloController extends Application {
         actualizarEtiquetas();
     }
 
-    // Método para iniciar la cuenta regresiva
+    /**
+     * Inicia la cuenta regresiva y actualiza el tiempo cada segundo.
+     * Cuando el tiempo llega a cero, detiene la cuenta y marca la propiedad fin como true.
+     */
     public void iniciarCuentaAtras() {
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
             if (tiempo.get() > 0) {
@@ -83,7 +109,10 @@ public class HelloController extends Application {
         timeline.play();
     }
 
-    // Método para actualizar las etiquetas del temporizador
+    /**
+     * Actualiza las etiquetas de minutos y segundos en la interfaz gráfica
+     * para reflejar el tiempo actual en el formato MM:SS.
+     */
     private void actualizarEtiquetas() {
         int minutos = tiempo.get() / 60;
         int segundos = tiempo.get() % 60;
@@ -94,6 +123,12 @@ public class HelloController extends Application {
         segundosUnidades.setText(String.valueOf(segundos % 10));
     }
 
+    /**
+     * Método principal de JavaFX para configurar y mostrar la escena del temporizador.
+     * Establece un tiempo de ejemplo y comienza la cuenta regresiva.
+     *
+     * @param primaryStage El escenario principal para la aplicación JavaFX.
+     */
     @Override
     public void start(Stage primaryStage) {
         // Configurar el escenario principal
@@ -108,6 +143,11 @@ public class HelloController extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Método principal que inicia la aplicación JavaFX.
+     *
+     * @param args Argumentos de línea de comandos.
+     */
     public static void main(String[] args) {
         launch(args);
     }
