@@ -3,7 +3,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.GridPane?>
 
-<GridPane fx:controller="com.example.q.HelloController"
+<GridPane fx:controller="com.intissar.q.Temporizador"
           alignment="CENTER"
           hgap="5"
           xmlns:fx="http://javafx.com/fxml"

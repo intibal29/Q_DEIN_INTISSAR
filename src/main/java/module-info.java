@@ -3,6 +3,6 @@ module com.example.q {
     requires javafx.fxml;
 
 
-    opens com.example.q to javafx.fxml;
-    exports com.example.q;
+    opens com.intissar.q to javafx.fxml;
+    exports com.intissar.q;
 }

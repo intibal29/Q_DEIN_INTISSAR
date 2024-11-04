@@ -1,4 +1,4 @@
-package com.example.q;
+package com.intissar.q;
 
 import javafx.application.Application;
 import javafx.beans.property.BooleanProperty;
@@ -20,7 +20,7 @@ import javafx.animation.Timeline;
  * en formato gráfico. Incluye métodos para configurar el tiempo, iniciar el temporizador y actualizar la visualización.
  * Extiende la clase Application de JavaFX para iniciar y mostrar la interfaz gráfica.
  */
-public class HelloController extends Application {
+public class Temporizador extends Application {
 
     /** GridPane que contiene las etiquetas de minutos y segundos. */
     private GridPane gridPane;
@@ -48,7 +48,7 @@ public class HelloController extends Application {
      * Inicializa el GridPane y las etiquetas de minutos y segundos con su formato y posición.
      * Configura el estilo visual de las etiquetas.
      */
-    public HelloController() {
+    public Temporizador() {
         this.gridPane = new GridPane();
         this.gridPane.setAlignment(Pos.CENTER);
         this.gridPane.setHgap(5);
@@ -148,7 +148,7 @@ public class HelloController extends Application {
      *
      * @param args Argumentos de línea de comandos.
      */
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         launch(args);
-    }
+    }*/
 }
